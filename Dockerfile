@@ -4,6 +4,8 @@
 # Use ubuntu 19.04
 FROM ubuntu:disco
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y gnupg2
 
 RUN echo 'deb http://qgis.org/ubuntu-ltr disco main' >> /etc/apt/sources.list
