@@ -4,14 +4,12 @@
 # Use ubuntu 19.04
 FROM ubuntu:disco
 
-ENV DEBIAN_FRONTEND=noninteractive
-
 RUN apt-get update && apt-get install -y gnupg2
 
 RUN echo 'deb http://qgis.org/ubuntu-ltr disco main' >> /etc/apt/sources.list
 RUN echo 'deb-src http://qgis.org/ubuntu-ltr disco main' >> /etc/apt/sources.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
-RUN apt-get update && apt-get install -y qgis python-qgis qgis-plugin-grass
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y qgis python-qgis qgis-plugin-grass
 
 ########################################
 # Add mount points for TACC filesystems
